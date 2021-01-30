@@ -20,11 +20,10 @@ public class Main {
             location = args[0];
             path = new File(location);
             option = Integer.parseInt(args[1]);
-        } catch(Exception e) {
-            System.out.println("Input runtime parameters");
-        } finally {
             Text.open();
             Option.check();
+        } catch(Exception e) {
+            System.out.println("Input runtime parameters");
         }
     }
 }
