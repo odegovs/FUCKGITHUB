@@ -1,6 +1,6 @@
 /*
  * Main.java
- * 29.01.2021
+ * 03.02.2021 UPD
  * GH: odegovs
  */
 
@@ -11,19 +11,15 @@ import java.io.IOException;
 
 public class Main {
 
-    public static String location;
-    public static File path;
-    public static int option;
-
     public static void main(String[] args) throws IOException {
         try {
-            location = args[0];
-            path = new File(location);
-            option = Integer.parseInt(args[1]);
-            Text.open();
-            Option.check();
-        } catch(Exception e) {
-            System.out.println("Input runtime parameters");
+            TextEditor.argsLocation = args[0];
+            TextEditor.fileLocation = new File(TextEditor.argsLocation);
+            ActionPerformer.actionType = Integer.parseInt(args[1]);
+            TextEditor.openFile();
+            ActionPerformer.checkActionType();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e);
         }
     }
 }

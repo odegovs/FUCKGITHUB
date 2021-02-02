@@ -1,6 +1,6 @@
 /*
- * Option.java
- * 29.01.2021
+ * ActionPerformer.java
+ * 03.02.2021 UPD
  * GH: odegovs
  */
 
@@ -8,10 +8,12 @@ package com.editor;
 
 import java.io.IOException;
 
-public class Option {
+public class ActionPerformer {
 
-    public static void check() throws IOException {
-        switch (Main.option) {
+    public static int actionType;
+
+    public static void checkActionType() throws IOException {
+        switch (actionType) {
             case 1 -> Math.sum();
             case 2 -> Math.multiply();
             default -> System.out.println("Invalid runtime argument [1]");
