@@ -21,6 +21,7 @@ public class TextEditor {
 
     public static void openFile() {
         try {
+            fileLocation = new File(argsLocation);
             Scanner sc = new Scanner(fileLocation);
             while (sc.hasNextInt()) {
                 values.add(sc.nextInt());

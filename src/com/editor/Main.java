@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         try {
             TextEditor.argsLocation = args[0];
-            TextEditor.fileLocation = new File(TextEditor.argsLocation);
             ActionPerformer.actionType = Integer.parseInt(args[1]);
             TextEditor.openFile();
             ActionPerformer.checkActionType();
