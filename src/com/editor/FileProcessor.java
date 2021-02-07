@@ -11,28 +11,32 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class TextEditor {
+public class FileProcessor {
 
-    public static ArrayList <Integer> values = new ArrayList <>();
-    public static String argsLocation;
-    public static File fileLocation;
-
-    public static void openFile() {
+    public static List<Integer>readFile(String path) {
         try {
-            fileLocation = new File(argsLocation);
-            Scanner sc = new Scanner(fileLocation);
+            List<Integer> values = new ArrayList<>();
+
+            File file = new File(path);
+            Scanner sc = new Scanner(file);
             while (sc.hasNextInt()) {
                 values.add(sc.nextInt());
             }
+
+            return values;
         } catch (FileNotFoundException e) {
+            //  TODO: run this code. Does output looks clear for the user?
             e.printStackTrace();
+            return null;
         }
     }
 
-    public static void writeFile() throws IOException {
-        FileWriter wr = new FileWriter(fileLocation);
+    public static void writeFile(String path, List<Integer> values) throws IOException {
+        File file = new File(path);
+        FileWriter wr = new FileWriter(file);
         for (Integer value : values) {
             wr.write(value.toString() + System.lineSeparator());
         }

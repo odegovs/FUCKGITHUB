@@ -6,17 +6,17 @@
 
 package com.editor;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         try {
-            TextEditor.argsLocation = args[0];
-            ActionPerformer.actionType = Integer.parseInt(args[1]);
-            TextEditor.openFile();
-            ActionPerformer.checkActionType();
+            String filePath = args[0];
+            int actionType = Integer.parseInt(args[1]);
+
+            ActionPerformer.perform(actionType, filePath);
+        //  TODO: read about exceptions; google: java exceptions
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println(e);
         }

@@ -7,21 +7,23 @@
 package com.editor;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Math {
 
-    public static void sum() {
+    public static int sum(List<Integer> values) {
         int result = 0;
-        for(int i = 0; i < TextEditor.values.size(); i++) {
-            result += TextEditor.values.get(i);
+
+        //  TODO: for-each
+        for(int i = 0; i < values.size(); i++) {
+            result += values.get(i);
         }
-        System.out.println("Sum of numbers in the file is: " + result);
+        return result;
     }
 
     public static void multiply() throws IOException {
-        for (int i = 0; i < TextEditor.values.size(); i++) {
-            TextEditor.values.set(i, TextEditor.values.get(i) * 2);
+        for (int i = 0; i < FileProcessor.values.size(); i++) {
+            FileProcessor.values.set(i, FileProcessor.values.get(i) * 2);
         }
-        TextEditor.writeFile();
     }
 }
