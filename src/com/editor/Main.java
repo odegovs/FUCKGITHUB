@@ -7,18 +7,21 @@
 package com.editor;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
-        if (new File(args[0]).exists()) {
-            try {
-                ActionPerformer.perform(Integer.parseInt(args[1]), args[0]);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+    public static void main(String[] args) throws IOException {
+        String secondPath;
+
+        if (args.length == 3) {
+            secondPath = args[2];
         } else {
-            System.out.println("Error: File is not exists");
+            secondPath = null;
+        }
+
+        if (secondPath != null && (new File(secondPath)).exists() && (new File(args[0]).exists())) {
+            ActionPerformer.perform(Integer.parseInt(args[1]), args[0], secondPath);
         }
     }
 }

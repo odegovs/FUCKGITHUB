@@ -16,14 +16,13 @@ import java.util.Scanner;
 
 public class FileProcessor {
 
-    public static List <Integer> readFile(String path) throws FileNotFoundException {
-        List <Integer> values = new ArrayList <>();
+    public static List <String> readFile(String path) throws FileNotFoundException {
+        List <String> values = new ArrayList <>();
         Scanner sc = new Scanner(new File(path));
 
-        while (sc.hasNextInt()) {
-            values.add(sc.nextInt());
+        while (sc.hasNext()) {
+            values.add(sc.next());
         }
-
         return values;
     }
 
