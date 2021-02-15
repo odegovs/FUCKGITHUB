@@ -1,6 +1,6 @@
 /*
  * ActionPerformer.java
- * 03.02.2021 UPD
+ * 08.02.2021 UPD
  * GH: odegovs
  */
 
@@ -10,13 +10,11 @@ import java.io.IOException;
 
 public class ActionPerformer {
 
-    public static int actionType;
-
-    public static void checkActionType() throws IOException {
+    public static void perform(int actionType, String path) throws IOException {
         switch (actionType) {
-            case 1 -> Math.sum();
-            case 2 -> Math.multiply();
-            default -> System.out.println("Invalid runtime argument [1]");
+            case 1 -> System.out.println("Values sum is: " + Math.sum(FileProcessor.readFile(path)));
+            case 2 -> Math.multiply(FileProcessor.readFile(path), path);
+            default -> System.out.println("ActionType is invalid");
         }
     }
 }
